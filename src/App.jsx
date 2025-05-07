@@ -7,8 +7,11 @@ function App() {
   const [todoValue, setTodoValue] = useState("");
 
   function handleAddTodos(newTodo) {
-    const newTodoList = [...todos, newTodo];
-    setTodos(newTodoList);
+    if (todoValue.trim() !== "") {
+      const newTodoList = [...todos, newTodo];
+      setTodos(newTodoList);
+      setTodoValue('')
+    }
   }
 
   function handleDeleteTodo(index) {
